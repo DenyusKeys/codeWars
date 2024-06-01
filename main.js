@@ -418,4 +418,23 @@ function highAndLow(numbers){
         sum = sum + x;
     }
     return sum;
-  }   
+  }  
+
+//Kyu 6: Counting Duplicates
+//Count the number of Duplicates: Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. 
+//"aabBcd" returns 2 (a & b have duplicates)  "abcde" returns 0
+function duplicateCount(text){
+  //Split and sort text into an array
+  let x = text.toLowerCase().split('').sort();
+  
+  //Track total
+  let total = 0;
+  
+  //Loop sorted array
+  for(let i = 0; i < x.length; i++){
+    if(x[i] == x[i+1] && x[i] != x[i-1]){     //Since array is sorted, if element after index is same but element prior to index isn't, increment the total
+      total = total + 1;
+    }
+  }
+  return total;
+}
