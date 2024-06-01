@@ -442,25 +442,28 @@ function duplicateCount(text){
 //(27) Kyu 6: Only Duplicates
 //Given a string, remove any characters that are unique from the string.   "abccdefee" -> "cceee"
 function onlyDuplicates(str) {
-  //Turn string into an array 
+  //Make string into array
   let x = str.split('');
   
-  //Array to push duplicates into
+  //New array to push letters into
   let answer = [];
   
   //Loop array
   for(let i = 0; i < x.length; i++){
-    let count = 0; //Track number of times element is seen
-
-    for(let j = 0; j < x.length; j++){  //Starts from beginning of string again incrementing the count
+    let count = 0;
+    
+    //Loop array to compare i to j
+    for(let j = 0; j < x.length; j++){
       if(x[i] == x[j]){
         count = count + 1;
       }
     }
-    if(count > 1){  //Push elements into answer array
-      answer.push(x[i]);
-    }
+    if(count > 1){  //Must be 2 at least to account for looping over the same element the first time
+      answer.push(x[i]); //Push duplicate into the answer array
+    }    
   }
+  return answer.join(''); // Join the array together into a string
+}
 
   return answer.join(''); //Join array for answer
 }
