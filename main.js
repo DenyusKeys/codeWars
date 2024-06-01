@@ -467,3 +467,40 @@ function onlyDuplicates(str) {
 
   return answer.join(''); //Join array for answer
 }
+
+//(28) Kyu 6: Take a Ten Minute Walk
+//Get an array of directions.  If the directions are longer than 10 or they don't bring you back to the start return false.  
+function isValidWalk(walk) {
+  
+  //If array isn't length 10 it's automatically false
+  if(walk.length != 10){
+    return false;
+  }
+
+  //Track n, s, e, w
+  let n = 0;
+  let s = 0;
+  let w = 0; 
+  let e = 0;
+  
+  //loop array to count directions
+  for(let i = 0; i < walk.length; i++){
+    if(walk[i] == 'n'){
+      n = n + 1;
+    } else if(walk[i] == 'e'){
+      e = e + 1;
+    } else if(walk[i] == 's'){
+      s = s + 1;
+    } else if(walk[i] == 'w'){
+      w = w + 1;
+    }
+  }
+  
+  //Compare directions
+  if(n == s && e == w){
+    return true;
+  } else {
+    return false;
+  }
+  
+}
