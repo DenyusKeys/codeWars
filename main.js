@@ -420,7 +420,7 @@ function highAndLow(numbers){
     return sum;
   }  
 
-//Kyu 6: Counting Duplicates
+//(26) Kyu 6: Counting Duplicates
 //Count the number of Duplicates: Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. 
 //"aabBcd" returns 2 (a & b have duplicates)  "abcde" returns 0
 function duplicateCount(text){
