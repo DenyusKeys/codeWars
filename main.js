@@ -504,3 +504,24 @@ function isValidWalk(walk) {
   }
   
 }
+
+//(29) Kyu 6: Your order, please
+// Array of strings that contain a number which represents where they should be placed in an array.
+// "is2 Thi1s T4est 3a"  -->  "Thi1s is2 3a T4est"
+function order(words){
+  //Split the array
+  let x = words.split(' ');
+  
+  //Push words into array
+  let answer = [];
+  
+  //Loop x array
+  for(let i = 0; i <= x.length; i++){     //Uses index number as key to check for in words
+    for(let j = 0; j < x.length; j++){    //If index number is in word, it will push that word to the array.
+      if(x[j].indexOf(i) >= 0){           //Index goes in order so each number will be found in a word and pushed
+        answer.push(x[j]);
+      }
+    }
+  }
+  return answer.join(' ');
+}
