@@ -525,3 +525,22 @@ function order(words){
   }
   return answer.join(' ');
 }
+
+//(30) Kyu 7: Given an array with pairs of ages and handicap, determine if they are a senior or open player based on Age >= 55 and Handicap > 7
+// Example: [[18, 20], [45, 2], [61, 12]]  --> ["Open", "Open", "Senior"]
+function openOrSenior(data){
+  //Create array for answer
+  let answer = [];
+  
+  //Loop data to create conditionals for open vs senior
+  for(let i = 0; i < data.length; i++){
+    //Check values then push() to add to array
+    if(data[i][0] >= 55 && data[i][1] > 7){
+      answer.push("Senior");
+    } else {
+      answer.push("Open");
+    }
+  }
+  //Return the answer array
+  return answer;
+}
