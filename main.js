@@ -545,7 +545,7 @@ function openOrSenior(data){
   return answer;
 }
 
-//(31) Kyu 6: 
+//(31) Kyu 6: Given a string, create a new string using '(' if the letter occurs ONLY once and ')' if it occurs twice.
 
 function duplicateEncode(word){
     //make all chars lowercase
