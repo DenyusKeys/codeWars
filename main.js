@@ -544,3 +544,27 @@ function openOrSenior(data){
   //Return the answer array
   return answer;
 }
+
+//(31) Kyu 6: 
+
+function duplicateEncode(word){
+    //make all chars lowercase
+    let xword = word.toLowerCase();
+  
+    //Keep count of times a character shows up
+    let answer = '';
+    for(let i = 0; i < xword.length; i++){
+      let count = 0;  //Track instances of char
+      for(let j = 0; j < xword.length; j++){
+        if(xword[j] == xword[i]){  //Increment the count if char is the same
+          count = count + 1;
+        }
+      }
+    if(count > 1){
+       answer += ')';
+    } else if (count <= 1){
+        answer += '(';
+      }
+    }
+    return answer;
+}
