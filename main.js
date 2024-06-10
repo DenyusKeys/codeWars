@@ -568,3 +568,29 @@ function duplicateEncode(word){
     }
     return answer;
 }
+
+//(32) Kyu 6: "Unique In Order" Take a string or array and return a list of items, keeping the order, that doesn't contain duplicates next to eachother
+// 'AAAABBBCCDAABBB' == ['A', 'B', 'C', 'D', 'A', 'B']   || [1,2,2,3,3] == [1,2,3]
+var uniqueInOrder=function(iterable){
+  //Create answer array
+  let answer = [];
+  //remember iterable can be a string or an array
+  if(typeof iterable == 'object'){
+    //it's an array
+    for(let i = 0; i < iterable.length; i++){    //For loop is checking the next index for a match, if it doesn't match, we can push the current index to the answer array
+      if(iterable[i] != iterable[i + 1]){        
+        answer.push(iterable[i]);
+      }
+    }
+    return answer;
+  } else {
+    //it's a string, convert to array
+    let x = iterable.split('');
+    for(let i = 0; i < x.length; i++){
+      if(x[i] != x[i + 1]){
+        answer.push(x[i]);
+      }
+    }
+    return answer; 
+  }     
+}
