@@ -594,3 +594,47 @@ var uniqueInOrder=function(iterable){
     return answer; 
   }     
 }
+
+//(33) Kyu 6: Detect Pangram
+//Given a string, detect whether or not it is a pangram(includes every letter of alphabet). Return True if it is, False if not. Ignore numbers and punctuation.
+function isPangram(string){
+  
+  //Create array of every letter
+  let alphabet = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+  'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+  'y', 'z'];
+  
+  //Make the string a lowercase array
+  let x = string.toLowerCase().split('');
+  
+  //Iterate alphabet for each letter of string
+  for(let i = 0; i < alphabet.length; i++){
+    
+    //If the string includes the alphabet letter or punctuation/spaces, or numbers, continue.
+    if(x.includes(alphabet[i]) || x[i] == ',' || x[i] == "''" || x[i] == ' ' || typeof x[i] == "number"){
+      continue;
+    } else {
+      //If string does not include a letter from alphabet array, return false.
+      return false;
+    }
+  }
+  return true;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
