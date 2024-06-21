@@ -621,6 +621,27 @@ function isPangram(string){
   return true;
 }
 
+//(34) Kyu 7: Printer Errors
+// If string doesn't include letters a-m, return the ratio of the wrong letters.  (aabbzz) -> "2/6"
+  function printerError(s) {
+  // Create array of good letters
+  let goodLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h','i','j','k','l','m'];
+  
+  let stringWord = s.split('');
+  
+  let count = 0;
+  let denom = s.length;
+  
+  for(let i = 0; i < stringWord.length; i++){
+    if(goodLetters.includes(stringWord[i])){
+      continue;
+    } else {
+      count = count + 1;
+    }
+  }
+  return `${count}/${denom}`;
+}
+
 
 
 
