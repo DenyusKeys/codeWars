@@ -642,7 +642,23 @@ function isPangram(string){
   return `${count}/${denom}`;
 }
 
-
+//(35) Kyu 6: Find the unique number
+// Given array [1, 1, 1, 1, 2, 1, 1]: get the unique number returned (2);
+function findUniq(arr) {
+  let x = arr.sort();
+  
+  let a = x[0];
+  let b = x[x.length-1];
+  let c = x[1];
+  
+  if(a != c){
+    return a;
+  }
+  
+  if(b != c){
+    return b;
+  }
+}  
 
 
 
