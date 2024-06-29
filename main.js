@@ -660,8 +660,37 @@ function findUniq(arr) {
   }
 }  
 
+//(36) Kyu 6: Sort the Odd
+// You will be given an array of numbers. You have to sort the odd numbers in ascending order while leaving the even numbers at their original positions.
+// [5, 8, 6, 3, 4] -> [3, 8, 6, 5, 4]      [7, 1]  =>  [1, 7]
 
-
+function sortArray(array) {
+  //Create array of odds
+  let odds = [];
+  //Add odds to array
+  for(let i = 0; i < array.length; i++){
+    if(array[i] % 2 != 0){
+      odds.push(array[i]);
+    }
+  }
+  //Sort odds array
+  let sortedOdds = odds.sort(function(a,b){
+    return a-b});
+  //Create answer array and add odds into it
+  let answerArray = [];
+  //Increment for answer array
+  let answerIndex = 0;
+  //Start pushing
+  for(let j = 0; j < array.length; j++){
+    if(array[j] % 2 == 0){
+      answerArray.push(array[j]);
+    } else if(array[j] % 2 != 0){
+      answerArray.push(sortedOdds[answerIndex]);
+      answerIndex = answerIndex + 1;
+    }
+  }
+  return answerArray;
+}
 
 
 
