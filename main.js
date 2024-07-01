@@ -692,9 +692,29 @@ function sortArray(array) {
   return answerArray;
 }
 
-
-
-
+//(37) Kyu 6: Playing with Digits
+// Given two positive integers, n and p, find k
+// n = 46288; p = 3 ---> 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51   K = 51 
+function digPow(n, p){
+  //make array of numbers from n
+  let nString = String(n);
+  let nArray = nString.split('');
+  let sum = 0;
+  //Now the number is in an array to iterate over
+  let exponent = p;
+  for(let i = 0; i < nArray.length; i++){
+    sum = sum + Math.pow(nArray[i], exponent);
+    exponent++;
+  }
+  //Divide sum by n.
+  let x = (sum / n);
+  //If x is a whole number, return x else return -1;
+  if(x == Math.floor(x)){
+    return x;
+  } else {
+    return -1;
+  }  
+}
 
 
 
