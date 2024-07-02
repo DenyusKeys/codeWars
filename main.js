@@ -717,7 +717,15 @@ function digPow(n, p){
 }
 
 
-
+//(38) Kyu 6: Two Sum
+// Given an array (numbers) and a target (target).  Find the index of 2 elements in the array that make the target.
+function twoSum(numbers, target) {
+    for (let i = 0; i < numbers.length-1; i++) {
+        for (let j = 1; j < numbers.length; j++) {
+            if (numbers[i] + numbers[j] === target) return [i, j];
+        }
+    }
+}
 
 
 
