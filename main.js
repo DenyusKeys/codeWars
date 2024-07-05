@@ -727,7 +727,20 @@ function twoSum(numbers, target) {
     }
 }
 
-
+//(39) Kyu 6: Count characters in your string
+function count (string) {  
+  let count = {};
+  for(let i = 0; i < string.length; i++){
+    let letter = string[i];
+    if(count[letter]){
+      count[letter]++;
+    } else {
+      count[letter]=1;
+    }
+  }
+  console.log(count);
+  return count;
+}
 
 
 
