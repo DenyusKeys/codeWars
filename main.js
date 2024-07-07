@@ -1,4 +1,4 @@
-// Important methods and notes
+// Important methods
 
 // Ways to sum entire array
 function forEachSum(array){
