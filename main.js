@@ -770,5 +770,17 @@ function wave(str){
   return answer;
 }
 
-
+//(41) Kyu 7: People in the bus
+// Given an array [on, off] of people getting on and off the bus, return the amount of people left on the bus after the last stop.
+var number = function(busStops){
+  let on = 0;
+  let off = 0;
+  
+  for(let i = 0; i < busStops.length; i++){
+    on = on + busStops[i][0];
+    off = off + busStops[i][1];
+  }
+  
+  return on - off;
+}
 
