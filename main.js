@@ -742,6 +742,33 @@ function count (string) {
   return count;
 }
 
+//(40) Kyu 6: Mexican Wave
+//Given a string, capitalize each letter in a wave and pass it to an array -> Hello, hEllo, heLlo, helLo, hellO.  If there's whitespace, ignore it.
+function wave(str){
+  //Array to push strings into
+  let answer = [];
+  
+  //If string is empty
+  if(str.length < 1){
+    return [];
+  }
+  
+  //Turn string into an array
+  let word = str.split('');
+  
+  //loop word array and capitalize a letter on each round
+  for(let i = 0; i < word.length; i++){
+    let x = str.toLowerCase().split('');
+    if(x[i] == ' '){
+      continue;
+    }
+    x[i] = x[i].toUpperCase();
+    let y = x.join('');
+    answer.push(y);
+    x = word;
+  }
+  return answer;
+}
 
 
 
