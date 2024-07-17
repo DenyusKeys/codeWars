@@ -784,3 +784,21 @@ var number = function(busStops){
   return on - off;
 }
 
+//(42) Kyu 7: Reverse String of Words
+// Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+// "This is an example!" ==> "sihT si na !elpmaxe"
+function reverseWords(str) {
+  //Make string array
+  let answer = str.split(' ');
+  let x = ''
+  
+  for(let i = 0; i < answer.length; i++){
+    answer[i] = answer[i].split('').reverse().join('');
+    if(i != answer.length - 1){
+    x += answer[i] + ' ';
+      } else {
+        x += answer[i];
+      }
+  }
+  return x;
+}
