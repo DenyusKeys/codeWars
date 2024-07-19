@@ -802,3 +802,31 @@ function reverseWords(str) {
   }
   return x;
 }
+
+
+//(43) Kyu 6: Count the smiley faces
+// Given an array of strings, count how many smiley faces there are.  
+//Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+//A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+//Every smiling face must have a smiling mouth that should be marked with either ) or D   EXAMPLE: countSmileys([':)', ';(', ';}', ':-D']);       // should return 2;
+//return the total number of smiling faces in the array
+function countSmileys(arr) {
+  if(arr.length < 1){
+    return 0;
+  }
+  let count = 0;
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i][0] == ':' || arr[i][0] == ';'){
+      if(arr[i].length > 2 && (arr[i][1] == '-' || arr[i][1] == '~')){
+        if(arr[i][2] == ')' || arr[i][2] == 'D'){
+          count = count + 1;
+        }
+      } else if (arr[i].length == 2){
+        if(arr[i][1] == ')' || arr[i][1] == 'D'){
+          count = count + 1;
+        }
+      }
+    }
+  }
+  return count;
+}
