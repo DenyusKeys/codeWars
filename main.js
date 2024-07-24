@@ -830,3 +830,16 @@ function countSmileys(arr) {
   }
   return count;
 }
+
+//(44) Kyu 7: Find the stray number
+// GIven an array of same numbers except one, return the one
+function stray(numbers) {
+  
+  let x = numbers.sort();
+  
+  if(x[0] != x[1]){
+    return x[0];
+  } else {
+    return x[numbers.length - 1]
+  }
+}
