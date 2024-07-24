@@ -843,3 +843,22 @@ function stray(numbers) {
     return x[numbers.length - 1]
   }
 }
+
+//(45) Kyu 6: Multiples of 3 or 5
+// If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
+// Given a number.. return the sum of all the multiples.  If it is a multiple of 3 and 5, only count it once.
+function solution(number){
+  
+  let sum = 0;
+  
+  for(let i = 1; i < number; i++){
+    if(i % 3 == 0 && i % 5){
+      sum = sum + i;
+    } else if(i % 3 == 0){
+      sum = sum + i; 
+    } else if(i % 5 == 0){
+      sum = sum + i;
+    }
+  }
+  return sum;
+}
