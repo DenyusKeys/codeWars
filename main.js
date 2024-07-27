@@ -862,3 +862,18 @@ function solution(number){
   }
   return sum;
 }
+
+//(46) Kyu 6: Find the outlier
+// Given an array of all evens or all odds, they contain a single outlier.  Return that outlier
+// [2, 4, 6, 8, 9] --> 9 (The only odd number)
+function findOutlier(integers){
+  
+  let answer1 = integers.filter((integer) => integer % 2 == 0);  //Returns an array of numbers that fit the filter
+  let answer2 = integers.filter((integer) => integer % 2 != 0);
+  
+  if(answer1.length > 1){
+    return Number(answer2); //Make the answer an integer and not an array
+  } else {
+    return Number(answer1);
+  }
+}
