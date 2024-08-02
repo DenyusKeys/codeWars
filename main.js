@@ -877,3 +877,30 @@ function findOutlier(integers){
     return Number(answer1);
   }
 }
+
+//(47) Kyu 6: Does my number look big in this?
+// A Narcissistic Number (or Armstrong Number) is a positive number which is the sum of its own digits, each raised to the power of the number of digits in a given base. In this Kata, we will restrict ourselves to decimal (base 10).
+//For example, take 153 (3 digits), which is narcissistic: 1^3 + 5^3 + 3^3 = 1 + 125 + 27 = 153
+//Return true if number is narcissistic or false if it isn't
+function narcissistic(value) {
+  // Turn integer into an array by making it a string first then splitting it
+  let x = String(value);
+  x = x.split('');  //Creates array made from value
+  
+  //Get exponent by length of value
+  let v = String(value);  //Make value a string then use length to find the exponent
+  let exponent = v.length;  //Use this as exponent for math
+  
+  let sum = 0;  //Track total
+  
+  //Loop the array
+  for(let i = 0; i < x.length; i++){
+    sum = sum + (x[i] ** exponent);  
+  }
+  
+  if(sum == value){
+    return true;
+  } else {
+    return false;
+  }
+}
