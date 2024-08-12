@@ -904,3 +904,29 @@ function narcissistic(value) {
     return false;
   }
 }
+
+//(48) Kyu 5: Put zeros at end of array
+// Given an array, keep the place of everything except move the zeros to the end.  moveZeros([false,1,0,1,2,0,1,3,"a"]) // returns[false,1,1,2,1,3,"a",0,0]
+function moveZeros(arr) {
+  //New array to push items into except 0's
+  let answer = [];
+  let zeros = 0;
+  
+  //Loop through array.  If item is not zero add it to the array else increment 0 score.
+  for(let i = 0; i < arr.length; i++){
+      if(arr[i] === 0){
+        zeros = zeros + 1;
+        continue;
+      } else{
+        answer.push(arr[i]);
+      }
+  }
+  
+  //Add zeros to end of array until score == 0;
+  while(zeros != 0){
+    answer.push(0);
+    zeros = zeros -1;
+  }
+  
+  return answer;
+}
