@@ -930,3 +930,31 @@ function moveZeros(arr) {
   
   return answer;
 }
+
+//(49) Kyu 6: Sum of Digits
+// Given a number, sum it's digits until the final sum is a single number
+// 16 -> 1 + 6 = 7    292 -> 2+9+2 = 13 -> 1 + 3 = 4
+function digitalRoot(n) {
+  //Turn number into an array (String - Split - .map(Number))
+  let numberArray = n.toString().split("").map(Number);
+  
+  //Loop through array and get sum
+  let sum = 0; 
+  
+  for(let i = 0; i < numberArray.length; i++){
+    sum = sum + numberArray[i];
+  }
+  
+  //Use newSum for the while loop.  While the length is greater than 1 digit
+  let newSum = sum.toString().split("").map(Number);
+  while(newSum.length > 1){
+    sum = 0;
+    for(let j = 0; j < newSum.length; j++){  //get sum of newSum array
+      sum = sum + newSum[j];
+    }
+    newSum = sum.toString().split("").map(Number);
+  }
+  
+  return Number(newSum);  //Return final digit as a number and not an array
+  
+}
