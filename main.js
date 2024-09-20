@@ -958,3 +958,35 @@ function digitalRoot(n) {
   return Number(newSum);  //Return final digit as a number and not an array
   
 }
+
+//(50) Kyu 6: Reverse strings if length is greater than 5
+//Take string of one or more words, and returns the same string, but with all words that have five or more letters reversed
+// "Hey fellow warriors"  --> "Hey wollef sroirraw"  "This is another test" --> "This is rehtona test"
+function spinWords(string){
+  //Split string into array
+  let stringArray = string.split(' ');
+  
+  //Array to push answer string into
+  let answer = [];
+  
+  //Iterate over the string array
+  for(let i = 0; i < stringArray.length; i++){
+    
+    //If string length is greater or equal to 5
+    if(stringArray[i].length >= 5){
+      let reversal = '';
+      //Iterate over each letter in reverse to reverse the word
+      for(let j = stringArray[i].length - 1; j >= 0; j--){
+        reversal = reversal + stringArray[i][j];
+      } 
+      //Push the word to the answer array
+      answer.push(reversal);    
+    } 
+    //If string length is less than 5 push the word to the array
+    else if(stringArray[i].length < 5){
+      answer.push(stringArray[i])
+    }
+  }
+  //Turn the array back into a string
+  return answer.join(' ');
+}
