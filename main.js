@@ -990,3 +990,33 @@ function spinWords(string){
   //Turn the array back into a string
   return answer.join(' ');
 }
+
+
+
+//(51) Kyu 6: Convert String to Camel Case
+//"the-stealth-warrior" gets converted to "theStealthWarrior" "The_Stealth-Warrior" gets converted to "TheStealthWarrior"
+function toCamelCase(str){
+  //Empty string case
+    if(str.length < 1){
+      return str;
+    }
+  
+    //Adding characters to this string for the answer
+    let answer = '';
+  
+    //loop the string
+    for(let i = 0; i < str.length; i++){
+      
+      //Boolean test if the character is a letter *(/[a-zA-Z]/).test()*
+      if((/[a-zA-Z]/).test(str.charAt(i)) == true && (/[a-zA-Z]/).test(str.charAt(i-1)) == false && str.charAt(i) != str.charAt(0)){
+        
+        //If character before is not a letter, capitalize the next letter
+        answer += str.charAt(i).toUpperCase();
+      } 
+        //If the character is a letter and the previous is also a letter, add the character as it is.
+        else if((/[a-zA-Z]/).test(str[i]) == true){
+        answer += str.charAt(i);
+      }
+    }
+  return answer;
+}
