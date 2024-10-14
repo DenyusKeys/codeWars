@@ -1020,3 +1020,33 @@ function toCamelCase(str){
     }
   return answer;
 }
+
+
+//(Kyu 6): Break CamelCase
+//Given a string, add a space if the letter is uppercase
+// "camelCasing"  =>  "camel Casing"  "identifier"   =>  "identifier"      "" =>  ""
+function solution(string) {
+  //Empty String Case
+  if(string.lenght < 1){
+    return "";
+  }
+  
+  //Answer string to push letters to
+  let answer = "";
+  
+  //For loop and compare string letter to lowerCase;
+  for(let i = 0; i < string.length; i++){
+    
+    //If letter is lowercase, add it to the answer string
+    if(string.charAt(i) === string.charAt(i).toLowerCase()){
+      answer += string.charAt(i);
+    } 
+      //If letter is uppercase, add a space first then add the letter to answer string
+      else if(string.charAt(i) === string.charAt(i).toUpperCase()){
+      answer += ' ';
+      answer += string.charAt(i);
+    }
+  }
+  //Return answer String
+  return answer;
+}
