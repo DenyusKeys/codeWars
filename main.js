@@ -1050,3 +1050,32 @@ function solution(string) {
   //Return answer String
   return answer;
 }
+
+
+//(Kyu 6): Which are in?
+//Given two arrays, a1 and a2, if a1 strings are part of words in a2, add them to an array and return them sorted.
+// a1 = ["arp", "live", "strong"] a2 = ["lively", "alive", "harp", "sharp", "armstrong"] returns ["arp", "live", "strong"]
+function inArray(array1,array2){
+    //Answer array
+  let answer = [];
+  
+  //Outer loop for array1
+  for(let i = 0; i < array2.length; i++){
+    
+    //Inner loop to compare array1 to array2
+    for(let j = 0; j < array2.length; j++){
+      
+      //If word in array2 includes partial from array1, add it to the answer
+      if(array2[j].includes(array1[i])){
+        if(answer.includes(array1[i])){
+          continue;
+        } else{
+            answer.push(array1[i]);
+          }
+        
+      }
+    }
+  }
+  
+  return answer.sort();
+}
