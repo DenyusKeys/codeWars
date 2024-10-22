@@ -1079,3 +1079,30 @@ function inArray(array1,array2){
   
   return answer.sort();
 }
+
+
+//(KYU 6): Array Combinations
+//Given an array of arrays, how many unique arrays can be formed by picking one element from each subarray?
+// For example: solve([[1,2],[4],[5,6]]) = 4, because it results in only 4 possibilites. They are [1,4,5],[1,4,6],[2,4,5],[2,4,6].
+//Make sure that you don't count duplicates; for example solve([[1,2],[4,4],[5,6,6]]) = 4, since the extra outcomes are just duplicates.
+function solve(arr) {
+  //Created a set to save unique values
+  let answerSet = [];
+  
+  //Total variable to multiply against final array lengths
+  let total = 1;
+  
+  //Create unique sets from original array
+  for(let i = 0; i < arr.length; i++){
+    let x = new Set(arr[i]);  //Turns array at index into a set of unique values
+    answerSet.push(x);  //Push unique values into set
+  }
+  
+  //Loop unique set to check their SIZE.  Sets = size Arrays = length
+  for(let k = 0; k < answerSet.length; k++){
+    total = total * answerSet[k].size; 
+  }
+  
+  //Return total amount of variations
+  return total;
+  }
