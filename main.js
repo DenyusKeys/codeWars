@@ -1106,3 +1106,35 @@ function solve(arr) {
   //Return total amount of variations
   return total;
   }
+
+//(Kyu 6) Data Reverse
+//Each segment is 8 bits long, meaning the order of these segments needs to be reversed, 
+// for example: 11111111  00000000  00001111  10101010 should become 10101010  00001111  00000000  11111111
+//Data is given as an array [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]
+function dataReverse(data) {
+  
+  //Push data into 8bit chunks into an array
+  let chunk = '';
+  let count = 0;
+  let dataArray = [];
+  
+  //For every 8 count, add that chunk to the array and reset the chunk and counter variables
+  for(let i = 0; i < data.length; i++){
+    if(count != 8){
+      chunk += data[i];
+      count++;
+    } 
+    if(count == 8){
+      dataArray.push(chunk);
+      chunk = '';
+      count = 0;
+    } 
+  }
+  
+  //Push chunks into an array
+  let answer = [];
+  for(let j = dataArray.length - 1; j >= 0; j--){
+      answer.push(dataArray[j])
+  }
+  return answer.join('').split('').map(Number);    //.map(Number) 
+}
