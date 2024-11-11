@@ -1138,3 +1138,42 @@ function dataReverse(data) {
   }
   return answer.join('').split('').map(Number);    //.map(Number) 
 }
+
+//(Kyu 6): You will be given a number and you will need to return it as a string in Expanded Form. For example:
+//12 --> "10 + 2" 45 --> "40 + 2" 70304 --> "70000 + 300 + 4"
+function expandedForm(num) {
+  //Make number into a string then add to the array
+  let array = [];
+  let numberString = String(num);
+
+  //Create answer string to push numbers into
+  let answer = '';
+  
+  //Add each number in the numberString to the Array
+  for(let i = 0; i < numberString.length; i++){
+    array.push(numberString[i]);
+  }
+
+  //Keep track of zeroes to add to string.  Adds "count" amount of zeroes to the current number
+  let count = array.length - 1;
+  const zero = '0';
+
+  //Loop to add elements from array to answer string.
+  for(let j = 0; j < array.length; j++){
+      //If array value is zero, ignore zero values and continue
+      if(array[j] == 0){
+        count = count - 1;  //Still increment count to keep number of zeroes correct
+      } else { 
+        if(j + 1 != array.length){  //If the next index of j is not at the end of the number, add zeroes and a " + " to the string
+          answer += array[j] + zero.repeat(count) + ' + ';
+          count = count - 1;
+        } else if(j + 1 == array.length){  //If next index of j is the end of the number, only add the number
+          answer += array[j];
+        }
+      }
+  }
+
+  //removes extra " + " at end of string if it exists.  **Can handle elsewhere but this works.
+  let y = answer.replace(/\s\+\s$/, '');
+  return y;
+}
