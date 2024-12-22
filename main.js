@@ -1177,3 +1177,26 @@ function expandedForm(num) {
   let y = answer.replace(/\s\+\s$/, '');
   return y;
 }
+
+//(Kyu 7):Find the divisors
+//Given an integer > 1, return all of it's divisors in an array except for 1 and itself.
+ function divisors(integer) {
+    let x = integer;
+    let answer = [];
+   
+  for(let i = 2; i <= x; i++){
+    if(i == x){
+      break;
+    }
+    
+    if(x % i == 0){
+      answer.push(i);
+    }
+  }
+   
+  if(answer.length < 1){
+    return `${x} is prime`
+  } else{
+     return answer;
+  }
+}
