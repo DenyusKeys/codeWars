@@ -1239,3 +1239,45 @@ function maskify(cc) {
   //Join #'s with last 4 of cc
   return answer + y;
 }
+
+//(Kyu 6): Find the missing letter
+// Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
+// ['a','b','c','d','f'] -> 'e'           ['O','Q','R','S'] -> 'P'
+
+function findMissingLetter(array){
+  console.log('array is ' + array);
+  //Create lowercase and uppercase alphabet arrays
+  let smallAlphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+  //Map the small array to uppercase
+  let bigAlphabet = smallAlphabet.map(letter => letter.toUpperCase());
+
+  //If first element is lowercase
+  if(smallAlphabet.includes(array[0])){
+    //Slice portion of array starting at indexOf first element and ending at the length of the array(+1 since array is missing an element)
+    let smallSlice = smallAlphabet.slice(smallAlphabet.indexOf(array[0]), smallAlphabet.indexOf(array[0]) + array.length + 1);
+    console.log('smallSlice = ' + smallSlice)
+    //Loop through array comparing the slice to the original array
+    for(let i = 0; i < smallSlice.length; i++){
+      if(array.includes(smallSlice[i])){
+        continue;
+      } else { //If the element is not found in the smallSlice, return it
+        return smallSlice[i];
+      }
+    }
+  } 
+  
+  
+  //If first element is UPPERCASE
+  if(bigAlphabet.includes(array[0])){
+    //Slice portion of array starting at indexOf first element and ending at the length of the array (+1 since array is missing an element)
+    let bigSlice = bigAlphabet.slice(bigAlphabet.indexOf(array[0]), bigAlphabet.indexOf(array[0]) + array.length + 1);
+    console.log('bigSlice = ' + bigSlice);
+    for(let i = 0; i < bigSlice.length; i++){
+      if(array.includes(bigSlice[i])){
+        continue;
+      } else { //If the element is not found in the bigSlice, return it
+        return bigSlice[i]
+      }
+    }
+  } 
+}
