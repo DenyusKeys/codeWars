@@ -1198,3 +1198,31 @@ function expandedForm(num) {
      return answer;
   }
 }
+
+//(Kyu 7): Mask the Credit card
+// Mask the card numbers with # except the last 4.  (111 -> 111) (12345 -> #2345)
+// return masked string
+function maskify(cc) {
+  
+  //If length is < 5, return the original cc
+  if(cc.length <= 4){
+    return cc;
+  }
+  
+  //Answer to push numbers into
+  let answer = '';
+  
+  
+  //Loop to Add #'s then add last 4 of cc
+  for(let i = 0; i < cc.length; i++){
+    //Add #'s until index hits last 4
+    if(i < cc.length - 4){
+      answer += '#';
+    } else {
+      //Add last 4 of the cc
+      answer += cc[i];
+    }
+  }
+  
+  return answer;
+}
