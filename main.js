@@ -465,8 +465,6 @@ function onlyDuplicates(str) {
   return answer.join(''); // Join the array together into a string
 }
 
-  return answer.join(''); //Join array for answer
-}
 
 //(28) Kyu 6: Take a Ten Minute Walk
 //Get an array of directions.  If the directions are longer than 10 or they don't bring you back to the start return false.  
