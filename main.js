@@ -1226,3 +1226,16 @@ function maskify(cc) {
   
   return answer;
 }
+//Second way of solving Maskify
+function maskify(cc) {
+  let x = cc.length - 4;  //Get length up to last 4 numbers
+  let y = cc.slice(-4);  //Grab last 4 numbers
+  
+  let answer = '';
+  //Loop to add #'s to answer
+  for(let i = 0; i < x; i++){
+    answer += '#'
+  }
+  //Join #'s with last 4 of cc
+  return answer + y;
+}
