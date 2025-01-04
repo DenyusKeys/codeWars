@@ -34,6 +34,44 @@ for(let i = 0; i < arrayString.length; i++){
   newArray.push(change);
 }
 
+// 61 (Kyu 6): Equal Sides of an Array
+function findEvenIndex(arr){
+  //Variables to compare sums
+  let leftSide = 0;
+  let rightSide = 0;
+  
+  //Loop original array and compare both sides using the sum function
+  for(let i = 0; i < arr.length; i++){
+    
+    if(i == 0){
+      leftSide = 0;  //index 0 will always equal 0 since nothing is to the left
+      rightSide = sum(arr.slice(i+1)) //Grabs all elements after current index and sums them.
+      console.log('Left=' + leftSide + '  Right=' + rightSide);
+      if(leftSide == rightSide){
+        return i;
+      }
+    } else {
+      leftSide = sum(arr.slice(0, i)); //Grab all elements from 0 - index and sum them
+      rightSide = sum(arr.slice(i+1)); //Grab elements from index+1 - end and sum them
+      console.log('Left=' + leftSide + '  Right=' + rightSide);
+      if(leftSide == rightSide){
+        return i;
+      }
+    }
+    
+    if(i+1 == arr.length && (leftSide != rightSide)){  //If they never equal eachother, return -1
+      return -1
+    }
+  }
+}
+  //Helper Sum function 
+  function sum(list){
+    let sum = 0;
+    for(let i = 0; i < list.length; i++){
+      sum = sum + list[i];
+    }
+  }
+
 // KATA 6  Find the element that appears an odd amount of times in the array
 function findOdd(A) {
   //Handle cases where A.length = 1
