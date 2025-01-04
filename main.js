@@ -1020,7 +1020,7 @@ function toCamelCase(str){
 }
 
 
-//(Kyu 6): Break CamelCase
+//52 (Kyu 6): Break CamelCase
 //Given a string, add a space if the letter is uppercase
 // "camelCasing"  =>  "camel Casing"  "identifier"   =>  "identifier"      "" =>  ""
 function solution(string) {
@@ -1050,7 +1050,7 @@ function solution(string) {
 }
 
 
-//(Kyu 6): Which are in?
+//53(Kyu 6): Which are in?
 //Given two arrays, a1 and a2, if a1 strings are part of words in a2, add them to an array and return them sorted.
 // a1 = ["arp", "live", "strong"] a2 = ["lively", "alive", "harp", "sharp", "armstrong"] returns ["arp", "live", "strong"]
 function inArray(array1,array2){
@@ -1079,7 +1079,7 @@ function inArray(array1,array2){
 }
 
 
-//(KYU 6): Array Combinations
+//54(KYU 6): Array Combinations
 //Given an array of arrays, how many unique arrays can be formed by picking one element from each subarray?
 // For example: solve([[1,2],[4],[5,6]]) = 4, because it results in only 4 possibilites. They are [1,4,5],[1,4,6],[2,4,5],[2,4,6].
 //Make sure that you don't count duplicates; for example solve([[1,2],[4,4],[5,6,6]]) = 4, since the extra outcomes are just duplicates.
@@ -1105,7 +1105,7 @@ function solve(arr) {
   return total;
   }
 
-//(Kyu 6) Data Reverse
+//55 (Kyu 6) Data Reverse
 //Each segment is 8 bits long, meaning the order of these segments needs to be reversed, 
 // for example: 11111111  00000000  00001111  10101010 should become 10101010  00001111  00000000  11111111
 //Data is given as an array [1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,1,0,1,0,1,0]
@@ -1137,7 +1137,7 @@ function dataReverse(data) {
   return answer.join('').split('').map(Number);    //.map(Number) 
 }
 
-//(Kyu 6): You will be given a number and you will need to return it as a string in Expanded Form. For example:
+//56 (Kyu 6): You will be given a number and you will need to return it as a string in Expanded Form. For example:
 //12 --> "10 + 2" 45 --> "40 + 2" 70304 --> "70000 + 300 + 4"
 function expandedForm(num) {
   //Make number into a string then add to the array
@@ -1176,7 +1176,7 @@ function expandedForm(num) {
   return y;
 }
 
-//(Kyu 7):Find the divisors
+//57 (Kyu 7):Find the divisors
 //Given an integer > 1, return all of it's divisors in an array except for 1 and itself.
  function divisors(integer) {
     let x = integer;
@@ -1199,7 +1199,7 @@ function expandedForm(num) {
   }
 }
 
-//(Kyu 7): Mask the Credit card
+//58  (Kyu 7): Mask the Credit card
 // Mask the card numbers with # except the last 4.  (111 -> 111) (12345 -> #2345)
 // return masked string
 function maskify(cc) {
@@ -1240,7 +1240,7 @@ function maskify(cc) {
   return answer + y;
 }
 
-//(Kyu 6): Find the missing letter
+//59 (Kyu 6): Find the missing letter
 // Write a method that takes an array of consecutive (increasing) letters as input and that returns the missing letter in the array.
 // ['a','b','c','d','f'] -> 'e'           ['O','Q','R','S'] -> 'P'
 
@@ -1280,4 +1280,13 @@ function findMissingLetter(array){
       }
     }
   } 
+}
+
+//60 (Kyu 7): Sort the array
+function solution (nums) {
+  if (nums == null || nums.length < 1) {  //if nums is null or an empty array
+    return []
+  } else {
+    return nums.sort((a, b) => a - b)  //Sorts an array of numbers.  Without the function it uses unicode
+  }
 }
