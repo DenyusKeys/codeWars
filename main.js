@@ -34,6 +34,31 @@ for(let i = 0; i < arrayString.length; i++){
   newArray.push(change);
 }
 
+//62 (Kyu 6): Given a list, calculate the sum of the list as it is reduced to zero elements and push them into an array.
+// ls = [1, 2, 3, 4, 5, 6]  -> [21, 20, 18, 15, 11, 6, 0]
+function partsSums(ls) {
+  //Create answer array to push sums into
+   let answer = [];
+   let listLength = ls.length;
+   let total = ls.reduce((sum, element) => sum + element, 0); //Track total sum to push into answer
+   answer.push(total); //Push full ls sum into answer array
+  
+  
+  //If list has no elements
+  if(listLength < 1){
+    answer = [0];
+    return answer;
+  }
+  
+  //Loop the original list and subtract each element from total and pushing them
+  for(let i = 0; i < listLength; i++){   
+    total -= ls[i];   
+    answer.push(total);
+  }
+  
+  return answer;
+}
+
 // 61 (Kyu 6): Equal Sides of an Array
 function findEvenIndex(arr){
   //Variables to compare sums
@@ -70,6 +95,7 @@ function findEvenIndex(arr){
     for(let i = 0; i < list.length; i++){
       sum = sum + list[i];
     }
+    return sum;
   }
 
 // KATA 6  Find the element that appears an odd amount of times in the array
