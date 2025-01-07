@@ -72,9 +72,7 @@ function titleCase(title, minorWords) {
       answer.push(word);  //If word is included in minorWords, just push the word.
     }
   }
-  
   return answer.join(' ');
-
 }
 
 
