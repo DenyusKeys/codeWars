@@ -34,6 +34,50 @@ for(let i = 0; i < arrayString.length; i++){
   newArray.push(change);
 }
 
+//63 (Kyu 6): Title Case
+//('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
+//('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
+//Given two arrays.  If the word is found in minorWords, dont capitalize the first letter. 
+//If it is the first letter of the array or not in minorWords, capitalize the first letter of the array
+function titleCase(title, minorWords) {
+  
+  //If title is empty return ''
+  if(title.length < 1){  
+    return ''
+  }
+  
+  //Answer array to push elements into
+  let answer = [];  
+  
+  //splits title into lowercase array for easier comparing
+  let x = title.toLowerCase().split(' '); 
+  
+  //If minorWords exists, make it into an array of words.  If not, it is an empty array
+  let minor;
+  if(minorWords){
+    minor = minorWords.toLowerCase().split(' ');
+  } else {
+    minor = [];
+  }
+  
+   
+//Loop Title Array of Words
+  for(let i = 0; i < x.length; i++){
+    let word = x[i];  //Take word from title
+    
+    //First word is always capitalized OR if the word is not in minorWords, capitalize the first letter
+    if(i === 0 || !minor.includes(word)){  
+      answer.push(word[0].toUpperCase() + word.slice(1)); //Make first letter capital and plug the rest
+    } else {
+      answer.push(word);  //If word is included in minorWords, just push the word.
+    }
+  }
+  
+  return answer.join(' ');
+
+}
+
+
 //62 (Kyu 6): Given a list, calculate the sum of the list as it is reduced to zero elements and push them into an array.
 // ls = [1, 2, 3, 4, 5, 6]  -> [21, 20, 18, 15, 11, 6, 0]
 function partsSums(ls) {
