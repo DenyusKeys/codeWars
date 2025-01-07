@@ -54,7 +54,7 @@ function titleCase(title, minorWords) {
   
   //If minorWords exists, make it into an array of words.  If not, it is an empty array
   let minor;
-  if(minorWords){
+  if(minorWords){  // Check if `minorWords` is provided (i.e., it is not `null`, `undefined`, or another "falsy" value like an empty string).
     minor = minorWords.toLowerCase().split(' ');
   } else {
     minor = [];
