@@ -165,6 +165,41 @@ function findOdd(A) {
   
 }
 
+//Kyu 7: Alternate Capitalization
+//Given a lowercase string.  Capitalize all even indexes, then all indexes and return the two strings as an array
+//capitalize("abcdef") = ['AbCdEf', 'aBcDeF']
+function capitalize(s){
+  
+  
+  let answer = [];
+  
+  
+  let word1 = '';
+  let word2 = '';
+  
+  
+  for(let i = 0; i < s.length; i++){
+    if(i == 0 || i % 2 == 0){
+      word1 += s[i].toUpperCase();
+    } else {
+      word1 += s[i];
+    }
+  }
+  
+  for(let i = 0; i < s.length; i++){
+    if(i == 1 || i % 2 != 0){
+      word2 += s[i].toUpperCase();
+    } else {
+      word2 += s[i];
+    }
+  }
+  
+  answer.push(word1);
+  answer.push(word2);
+  
+  return answer;
+};
+
 //DNA KATA 7
 let dna = 'GTAT';
 
