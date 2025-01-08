@@ -25,14 +25,10 @@ function unoReverse(string){
   return reversal;
 }
 
-// Turn string into array and then capitalize the first letter
+//Capitalize the first letter of a string
 let string = 'wow lets play'
-let arrayString = string.split(' ');
-let newArray = [];
-for(let i = 0; i < arrayString.length; i++){
-  let change = arrayString[i][0].toUpperCase() + arrayString[i].substring(1);
-  newArray.push(change);
-}
+let newString = string[0][0].toUpperCase() + string.slice(1);
+return newString;
 
 //63 (Kyu 6): Title Case
 //('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
