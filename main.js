@@ -30,6 +30,58 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString;
 
+//64 (Kyu 6): The Vowel Code
+function encode(string) {
+  let answer = '';
+
+  //Loop the string and push correct numbers to string based on vowels
+  for(let i = 0; i < string.length; i++){
+    if(string[i] == 'a'){
+      answer += 1;
+    }
+    else if(string[i] == 'e'){
+      answer += 2;
+    }
+    else if(string[i] == 'i'){
+      answer += 3;
+    }
+    else if(string[i] == 'o'){
+      answer += 4;
+    }
+    else if(string[i] == 'u'){
+      answer += 5;
+    } else {
+      answer += string[i]; //if letter is not a vowel, push the letter
+    }
+  }
+  return answer;
+}
+
+function decode(string) {
+  let answer = '';
+    //Loop the string and push correct letters to string based on numbers
+  for(let i = 0; i < string.length; i++){
+    if(string[i] == '1'){
+      answer += 'a';
+    }
+    else if(string[i] == '2'){
+      answer += 'e';
+    }
+    else if(string[i] == '3'){
+      answer += 'i';
+    }
+    else if(string[i] == '4'){
+      answer += 'o';
+    }
+    else if(string[i] == '5'){
+      answer += 'u';
+    } else {
+      answer += string[i]; //if letter is not a number, push the letter
+    }
+  }
+  return answer;
+}
+
 //63 (Kyu 6): Title Case
 //('a clash of KINGS', 'a an the of') // should return: 'A Clash of Kings'
 //('THE WIND IN THE WILLOWS', 'The In') // should return: 'The Wind in the Willows'
