@@ -30,6 +30,50 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString;
 
+//65 (Kyu 6): Buying a car
+function nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMonth){
+  
+  //If old car is bigger than new car. Return 0 months and difference of old - new
+  if(startPriceOld >= startPriceNew){
+    return [0, (startPriceOld - startPriceNew)];
+  }
+  
+  //Track amount of months
+  let months = 0; 
+  
+  //variables
+  let oldCar = startPriceOld;
+  let newCar = startPriceNew;
+  let percentLoss = percentLossByMonth * 0.01;
+  let savings = 0;
+  
+  //old car decreases 1.5% a month and an extra 0.5% every 2 months
+  while( (oldCar + savings) < newCar){
+    months++; //increment the month
+    savings = savings + savingperMonth;
+    //Every second month, increment by 0.5%
+    if(months % 2 == 0){
+      percentLoss = percentLoss + 0.005;
+    }
+    
+    //Calculate new values
+    oldCar = oldCar - (oldCar * percentLoss);
+    newCar = newCar - (newCar * percentLoss);
+
+    //Check if  oldCar + savings is greater than newCar
+    if((oldCar + savings) >= newCar){
+     let x = (oldCar + savings) - newCar;
+     let y = x % 1; //Pulls the decimal off the end to compare floor/ceil
+      
+      if(y < 0.5){
+        return [months, Math.floor(((oldCar + savings) - newCar))]  //round down 
+      } else {
+        return [months, Math.ceil(((oldCar + savings) - newCar))] //round up
+      }
+    }   
+  }
+}
+
 //64 (Kyu 6): The Vowel Code
 function encode(string) {
   let answer = '';
