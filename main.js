@@ -19,7 +19,7 @@ function squareIt(array){
   return answerArray;
 }
 
-// Reverse a 
+// Reverse a string
 function unoReverse(string){
   let reversal = string.split('').reverse().join('');
   return reversal;
