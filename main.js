@@ -30,6 +30,29 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString;
 
+//66 (Kyu 7): Count the Digit
+//Given an integer, square all numbers from 0 - N.  Count number of occurrences of D.  
+//n = 10, d = 0 => (0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100)  ANSWER = 3
+function nbDig(n, d) {
+    
+  //Keep count of how many integers contain d
+  let count = 0; 
+  
+  //loop to get all integers
+  for(let i = 0; i <= n; i++){
+    let num = i*i;
+    let stringNum = num.toString();
+    //Loop through each integer to count occurences of d
+    for(let i = 0; i < stringNum.length; i++){
+      if(stringNum[i].includes(d)){
+        count = count + 1;
+      }
+    }
+  } 
+  return count;
+}
+
+
 //65 (Kyu 6): Buying a car
 function nbMonths(startPriceOld, startPriceNew, savingperMonth, percentLossByMonth){
   
