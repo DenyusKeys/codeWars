@@ -30,6 +30,43 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString;
 
+//67 (Kyu 6): Highest Rank Number in an Array
+//Complete the method which returns the number which is most frequent in the given input array. 
+// If there is a tie for most frequent number, return the largest number among them.
+//[12, 10, 8, 12, 7, 6, 4, 10, 12, 10]  -->  12 (12 showed 3 times so did 10.  12 > 10).
+function highestRank(arr){
+  //Set count 
+  let highest = 0;
+  let highCount = 0;
+  
+  //Loop array
+  for(let i = 0; i < arr.length; i++){
+    //Track occurrence of current element
+    let currentCount = 0;
+    
+    //Loop array and compare it to current element arr[i]
+    for(let j = 0; j < arr.length; j++){
+      if(arr[i] == arr[j]){
+        currentCount = currentCount + 1;
+      }
+    }
+    
+    //If current element has more occurrences than previous, update value.
+    if(currentCount > highCount){
+      highCount = currentCount;
+      highest = arr[i];
+    } 
+    //If occurrences are equal, choose the greater value for highest variable.
+    else if(currentCount == highCount){
+      if(highest < arr[i]){
+        highest = arr[i];
+         currentCount = 1;
+      }
+    }
+  }
+  return highest;
+}
+
 //66 (Kyu 7): Count the Digit
 //Given an integer, square all numbers from 0 - N.  Count number of occurrences of D.  
 //n = 10, d = 0 => (0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100)  ANSWER = 3
