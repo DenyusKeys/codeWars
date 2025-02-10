@@ -39,7 +39,7 @@ function highestRank(arr){
   let highest = 0;
   let highCount = 0;
   
-  //Loop array
+  //Loop arrays
   for(let i = 0; i < arr.length; i++){
     //Track occurrence of current element
     let currentCount = 0;
