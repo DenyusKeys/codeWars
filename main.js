@@ -30,6 +30,34 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString;
 
+//69(Kyu 6): Replace with Alphabet Position
+//given a string, replace every letter with its position in the alphabet. If anything in the text isn't a letter, ignore it and don't return it.
+//Input = "The sunset sets at twelve o' clock." ---- Output = "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
+
+function alphabetPosition(text) {
+  //Create alphabet array
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  alphabet = alphabet.split('');
+  
+  //Variable to push numbers into
+  let answer = '';
+  
+  //Make text lowercase for easy comparing
+  text = text.toLowerCase();
+  
+  //Loop the text and pull the indexOf the char from the alphabet array and add 1
+  for(let i = 0; i < text.length; i++){
+    let letter = text.charAt(i);
+
+    if(alphabet.includes(letter)){
+      //Cast the element as a number to add 1 to it.
+       answer = answer + (Number(alphabet.indexOf(letter))+1) + ' ';
+       }
+  }
+  //Return answer without the last space.
+  return answer.slice(0, answer.length-1);
+}
+
 
 //68(Kyu 7): Anagram Detection
 // write the function isAnagram
