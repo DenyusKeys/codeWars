@@ -30,6 +30,32 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString;
 
+
+//68(Kyu 7): Anagram Detection
+// write the function isAnagram
+var isAnagram = function(test, original) {
+  
+  //Check lengths to match
+  if(test.length != original.length){
+    return false;
+  }
+  
+  //Split and sort into arrays to compare
+  let x = test.toLowerCase().split('').sort();
+  let y = original.toLowerCase().split('').sort();
+ 
+  //Compare elements in array, if they don't match, automatically return false.
+  for(let i = 0; i < y.length; i++){
+    if(x[i] != y[i]){
+      return false;
+      break;
+    }
+  }
+  
+  //Arrays match
+  return true;
+};
+
 //67 (Kyu 6): Highest Rank Number in an Array
 //Complete the method which returns the number which is most frequent in the given input array. 
 // If there is a tie for most frequent number, return the largest number among them.
