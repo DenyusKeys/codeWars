@@ -33,27 +33,20 @@ return newString;
 
 //68(Kyu 7): Anagram Detection
 // write the function isAnagram
+// write the function isAnagram
 var isAnagram = function(test, original) {
   
-  //Check lengths to match
-  if(test.length != original.length){
+  //Split strings into arrays to sort
+  test = test.toLowerCase().split('').sort().join('');
+  original = original.toLowerCase().split('').sort().join('');
+  
+  //Compare strings
+  if(test == original){
+    return true;
+  } else {
     return false;
   }
-  
-  //Split and sort into arrays to compare
-  let x = test.toLowerCase().split('').sort();
-  let y = original.toLowerCase().split('').sort();
- 
-  //Compare elements in array, if they don't match, automatically return false.
-  for(let i = 0; i < y.length; i++){
-    if(x[i] != y[i]){
-      return false;
-      break;
-    }
-  }
-  
-  //Arrays match
-  return true;
+                                    
 };
 
 //67 (Kyu 6): Highest Rank Number in an Array
