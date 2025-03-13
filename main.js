@@ -30,6 +30,39 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString;
 
+
+//70(Kyu 6): WeIrD StRiNg CaSe
+//Given a string, return the string with even indexes as uppercase and odds as lowercase
+//If string contains spaces, after a space, the first letter should be capitalized.
+//Example: "String" => "StRiNg" |||| "Weird string case" => "WeIrD StRiNg CaSe"
+function toWeirdCase(string){
+  //Create answer variable to push letters into
+  let answer = [];
+  
+  //Make string into an array
+  let str = string.split('');
+  console.log(str);
+  
+  //Counter to track words as pseudo index
+  let count = 0;
+  
+  //Loop string and add to answer 
+  for(let i = 0; i < str.length; i++){
+    if(str[i] == ' '){   //If current element is a space
+      answer.push(' '); //Push space into answer to keep spacing
+      count = 0;  //Reset count (aka index) for next word
+      continue;
+    } else if(count % 2 == 0){ //If current element is even index
+      answer.push(str[i].toUpperCase());
+      count = count + 1;
+    } else if(count % 2 != 0){ //If current element is odd index
+      answer.push(str[i].toLowerCase());
+      count = count + 1;
+    }
+  }
+  return answer.join(''); //Join answer array back
+}
+
 //69(Kyu 6): Replace with Alphabet Position
 //given a string, replace every letter with its position in the alphabet. If anything in the text isn't a letter, ignore it and don't return it.
 //Input = "The sunset sets at twelve o' clock." ---- Output = "20 8 5 19 21 14 19 5 20 19 5 20 19 1 20 20 23 5 12 22 5 15 3 12 15 3 11"
