@@ -28,7 +28,37 @@ function unoReverse(string){
 //Capitalize the first letter of a string
 let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
-return newString;
+return newString
+
+
+//71(Kyu 7): Initialize my name
+// Given a name, abbreviate the middle to only the first letter and a period
+//'DeNyus Kapono Keys' -> DeNyus K. Keys
+function initializeNames(name){
+  //Make name an array with delimiter
+  let x = name.split(' '); //Puts each name into an array index
+  
+  //If name is a first name only or first and last name only
+  if(x.length == 1 ||  x.length == 2){
+    return name;
+  }
+  
+  //Array to push names into
+  let answer = [];
+  //If the name includes middle names
+  if(x.length > 2){
+    //If the index is first or last, push entire name to array
+    for(let i = 0; i < x.length; i++){
+      if(i == 0 || i == x.length - 1){
+        answer.push(x[i]);
+      } else {
+        answer.push(x[i][0] + '.'); //Take first letter and abbreviate middle name
+      }
+    }
+  }
+  //Join the answer array together
+  return answer.join(' ');
+}
 
 
 //70(Kyu 6): WeIrD StRiNg CaSe
