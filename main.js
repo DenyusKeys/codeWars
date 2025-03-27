@@ -30,6 +30,41 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString
 
+//72(Kyu 6): Highest Scoring Word
+//Given a string of words, you need to find the highest scoring word.
+//Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc. For example, the score of abad is 8 (1 + 2 + 1 + 4).
+//You need to return the highest scoring word as a string.
+//If two words score the same, return the word that appears earliest in the original string. All letters will be lowercase and all inputs will be valid.
+function high(x){
+  //Create a letter alphabet to use indexes for values
+  const alphabet = [0, "a","b","c","d","e","f","g","h","i","j","k","l",
+                    "m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  let words = x.split(' '); //Separate words into array for easier accessing 
+  let sum = 0; //Track the current words total
+  let biggest = 0; //Track the biggest words total currently
+  let answerWord; //The word joined back together .join()
+  
+  //Outer Loop: Loop the sentence
+  for(let i = 0; i < words.length; i++){
+    let currentWord = words[i].split(''); //Take current word and split into an array 
+    sum = 0; //Reset sum for next word
+    
+    //Nested Loop: Loop the word
+    for(let j = 0; j < currentWord.length; j++){
+      sum = sum + alphabet.indexOf(currentWord[j]); //Use letter index to get it's value
+      if(j + 1 == currentWord.length){ //If we are at the end of the word
+        if(biggest < sum){  //If the biggest word is less than the current word's sum, swap it.
+          biggest = sum;
+          answerWord = currentWord.join(''); //Join the word back together from the array it was split into
+        }
+      }
+    }   
+  }  
+  return answerWord;
+}
+
+
+
 
 //71(Kyu 7): Initialize my name
 // Given a name, abbreviate the middle to only the first letter and a period
