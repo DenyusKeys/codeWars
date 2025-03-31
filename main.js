@@ -30,6 +30,27 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString
 
+//73(Kyu 6): String Array Duplicates
+//given an array of strings and your task is to remove all consecutive duplicate letters from each string in the array
+//dup(["abracadabra","allottee","assessee"]) = ["abracadabra","alote","asese"]. dup(["kelless","keenness"]) = ["keles","kenes"].
+function dup(s) {
+  //Array to push strings into
+  let answer = [];
+  //For loop to loop each word in string
+  for(let i = 0; i < s.length; i++){
+    let word = s[i].split(''); //Split the word into an array for easy accessing
+    let xword = ''; //Variable to store letters as they are looped. RESETS ON EACH LOOP
+    //Nested Loop to iterate each letter in the word.
+    for(let j = 0; j < word.length; j++){
+      if(word[j] != word[j+1]){  //If the current letter does not equal the next letter, add it to the xword string
+        xword += word[j];
+      }
+    }
+    answer.push(xword);  //Push full xword into answer array before resetting the variable.
+  }
+  return answer;
+};
+
 //72(Kyu 6): Highest Scoring Word
 //Given a string of words, you need to find the highest scoring word.
 //Each letter of a word scores points according to its position in the alphabet: a = 1, b = 2, c = 3 etc. For example, the score of abad is 8 (1 + 2 + 1 + 4).
