@@ -30,6 +30,18 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString
 
+//74 Find the next perfect square
+//Given a number, return -1 if it isn't a perfect square else return the next perfect square
+function findNextSquare(sq) {
+  //Check if input is a perfect square
+  let number = Math.sqrt(sq);
+  if(!Number.isInteger(number)){  //If input is not a perfect square return -1
+    return -1;
+  } else { //Add 1 to number and square it to return the next perfect square (10 = 100: +1 11-> 121)
+    return ((number + 1) * (number + 1));
+  }
+}
+
 //73(Kyu 6): String Array Duplicates
 //given an array of strings and your task is to remove all consecutive duplicate letters from each string in the array
 //dup(["abracadabra","allottee","assessee"]) = ["abracadabra","alote","asese"]. dup(["kelless","keenness"]) = ["keles","kenes"].
