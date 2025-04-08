@@ -30,6 +30,31 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString
 
+//75(Kyu 7): Sum of the first nth term of Series
+//The series: 1 + (1/4) + (1/7) + (1/10) + (1/13)
+//If n = 2;  1 + (1/4) || n = 4; 1 + (1/4) + (1/7) + (1/10)
+//Return the value of the series given n and round the answer to 2 decimal places (1.25)
+function SeriesSum(n) {
+  //Handle 0 and 1 for n
+  if(n == 0){
+    return "0.00";
+  } else if(n == 1){
+    return "1.00";
+  }
+  //Variable to hold answer and divisors
+  let answer = 1.00;
+  let x = 1;
+  let y = 4;
+  //Loop to add the series together.  Incrementing y+3 each time
+  for(let i = 1; i < n; i++){
+    answer += (x / y);
+    y = y + 3;
+  }
+  //Return answer to 2 decimal places.
+  return `${answer.toFixed(2)}`
+}
+
+
 //74 Find the next perfect square
 //Given a number, return -1 if it isn't a perfect square else return the next perfect square
 function findNextSquare(sq) {
