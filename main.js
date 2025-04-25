@@ -30,6 +30,28 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString
 
+//77: Mumbling
+//("abcd") -> "A-Bb-Ccc-Dddd"||("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"||("cwAt") -> "C-Ww-Aaa-Tttt"
+function accum(s) {
+	//Hold our answer string we push letter to
+  let answer = '';
+  //split string to array for easy indexing
+  let x = s.split(''); 
+  //Loop array
+  for(let i = 0; i < x.length; i++){
+    let letter = x[i]; //Get current letter
+    answer += x[i].toUpperCase(); //Add current letter to answer string in UpperCase
+    if(i != 0){ //If the index is not 0 then add the letter as lowercase 
+      for(let j = 1; j <= x.indexOf(letter, i); j++){ //Loop uses the index of the letter as the count (indexOf uses the current index to avoid using index of duplicate)
+        answer += letter.toLowerCase();
+      }
+    }
+      answer += '-' // Add hyphen after each loop
+  }
+  return answer.slice(0, answer.length-1); //Slice out the last hyphen
+}
+
+
 //76: Given an integer, return it in descending order.
 // 167253 -> 765321
 function descendingOrder(n){
