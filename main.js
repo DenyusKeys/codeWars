@@ -30,6 +30,25 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString
 
+//79(Kyu 6): Backspaces in string
+//"abc#d##c" => "ac" or "abc##d######" =>  ""
+function cleanString(s) {
+  //Thoughts: Add letters to string and pop() everytime a # appears
+  
+  //Make s an array to use pop(); method
+  let x = s.split('');
+  //Push letters into answer array
+  let answer = [];
+  for(let i = 0; i < x.length; i++){
+    if(s[i] != '#'){
+      answer.push(x[i]);
+    } else {
+      answer.pop();
+    }
+  }
+  return answer.join('');
+}
+
 //78(kyu 7): Remove anchor from url
 // Given a url, remove anything after the # symbol. "www.codewars.com#about" --> "www.codewars.com"
 function removeUrlAnchor(url){
