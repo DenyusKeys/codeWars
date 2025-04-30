@@ -30,6 +30,27 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString
 
+//78(kyu 7): Remove anchor from url
+// Given a url, remove anything after the # symbol. "www.codewars.com#about" --> "www.codewars.com"
+function removeUrlAnchor(url){
+  //Create answer to push url too
+  let answer = '';
+  
+  //Make url an array for easy iteration
+  let x = url.split('');
+  console.log(url);
+  
+  //loop and push into answer until # symbol
+  for(let i = 0; i < x.length; i++){
+    if(x[i] != '#'){
+      answer += x[i];
+    } else {
+      break;
+    }
+  }
+  return answer;
+}
+
 //77: Mumbling
 //("abcd") -> "A-Bb-Ccc-Dddd"||("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"||("cwAt") -> "C-Ww-Aaa-Tttt"
 function accum(s) {
