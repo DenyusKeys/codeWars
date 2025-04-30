@@ -30,6 +30,39 @@ let string = 'wow lets play'
 let newString = string[0][0].toUpperCase() + string.slice(1);
 return newString
 
+//80(Kyu 5): The hashtag generator
+//It must start with a hashtag (#). All words must have their first letter capitalized. If the final result is longer than 140 chars it must return false. If the input or the result is an empty string it must return false.
+//" Hello there thanks for trying my Kata"  =>  "#HelloThereThanksForTryingMyKata"  || "    Hello     World   " =>  "#HelloWorld" || "" =>  false
+
+function generateHashtag (str) {
+  //Check length of string.  Trim() removes whitespaces
+  if(str.length < 1 || str.trim().length < 1){
+    return false;
+  }
+  //Answer to push words too as array
+  let answer = ['#'];
+  //split string into array
+  let x = str.split(' ');
+  //filter out the whitespaces inside the array
+  let y = x.filter((word) => word !== '');
+  //Loop array and push the capitalized word into the answer
+  for(let i = 0; i < y.length; i++){
+    if(y[i] !== ' ' || y[i] !== ''){ //If current element is not a space
+      let word = y[i][0].toUpperCase() + y[i].slice(1) //Capitalize the first letter and add the rest of the string.  slice(1) is everything after the first letter.
+      answer.push(word); //Push the word into the answer array
+    }
+  }
+  //Check length of answer, if greater than 140, return false
+  if(answer.join('').length > 140){
+    return false
+  } else {
+  return answer.join('');
+  }
+}
+
+
+
+
 //79(Kyu 6): Backspaces in string
 //"abc#d##c" => "ac" or "abc##d######" =>  ""
 function cleanString(s) {
